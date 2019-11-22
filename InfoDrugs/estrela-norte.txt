@@ -1,0 +1,29 @@
+-Cadastro
+	Ususario
+	Fornecedor
+	Farmacia
+
+-Login
+	Usuario
+		Nome Completo
+		Nome de Usuario
+		N. Celular
+		Geolocalização (lat lng)
+	Fornecedor
+	Farmacia
+
+-Home informativa
+	Promoções, novidades etc
+
+-Catalogo de preços
+	Comparador de preços
+
+-Localizador de farmacias (mapa)
+	Farmacias que vacinam
+
+add-farmacia
+add-usuario
+cadastro
+catalo-preco
+localizar-farmacia
+login
