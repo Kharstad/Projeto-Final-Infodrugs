@@ -14,6 +14,30 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },
+  {
+    path: 'add-farmacia',
+    loadChildren: () => import('./pages/add-farmacia/add-farmacia.module').then( m => m.AddFarmaciaPageModule)
+  },
+  {
+    path: 'add-usuario',
+    loadChildren: () => import('./pages/add-usuario/add-usuario.module').then( m => m.AddUsuarioPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'catalogo-preco',
+    loadChildren: () => import('./pages/catalogo-preco/catalogo-preco.module').then( m => m.CatalogoPrecoPageModule)
+  },
+  {
+    path: 'localizar-farmacia',
+    loadChildren: () => import('./pages/localizar-farmacia/localizar-farmacia.module').then( m => m.LocalizarFarmaciaPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   }
 ];
 
