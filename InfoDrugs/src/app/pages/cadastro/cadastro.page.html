@@ -1,9 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cadastro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+  <ion-title>
+    Cadastro
+  </ion-title>
+</ion-toolbar>
 
-<ion-content>
 
+<ion-content color="Enos">
+  <ion-card class="welcome-card" style="text-align:center">
+    <img class="welcome-img" src="/assets/fulltotal.png" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>Olá! Seja bem vindo(a)!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Selecione o tipo de conta</h2>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item lines="none" style="text-align:center;">
+    <ion-card style="margin: 0 auto; padding: 10px;" routerLink="../add-usuario">
+      <ion-card-title>
+        Pessoa Física
+      </ion-card-title>
+      <ion-card-content>
+        <ion-icon name="contact" size="large"></ion-icon>
+    </ion-card-content>
+    </ion-card>
+    <ion-card style="margin: 0 auto; padding: 10px;" routerLink="../add-farmacia">
+      <ion-card-title>
+        Pessoa Jurídica
+      </ion-card-title>
+      <ion-card-content>
+        <ion-icon name="contact" size="large"></ion-icon>
+    </ion-card-content>
+    </ion-card>
+  </ion-item> 
 </ion-content>

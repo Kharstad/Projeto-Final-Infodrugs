@@ -16,10 +16,30 @@ export class AppComponent {
       url: '/home',
       icon: 'home'
     },
-    {
+    /**{
       title: 'List',
       url: '/list',
       icon: 'list'
+    },**/
+    {
+      title: 'Catálogo',
+      url: '/catalogo-preco',
+      icon: 'list-box'
+    },
+    {
+      title: 'Encontrar farmácias',
+      url: '/localizar-farmacia',
+      icon: 'map'
+    },
+    {
+      title: 'Cadastre-se',
+      url: '/cadastro',
+      icon: 'person-add'
+    },
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'person'
     }
   ];
 
