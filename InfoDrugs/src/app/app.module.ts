@@ -5,6 +5,11 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 // Firebase ------------------------
 import { AngularFireModule } from '@angular/fire';
@@ -22,12 +27,19 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Geolocation,
+    GooglePlus, 
+    Device,
+    AndroidPermissions,
+    Camera,
   ],
   bootstrap: [AppComponent]
 })
