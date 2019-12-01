@@ -50,7 +50,7 @@ export class UsuarioService {
   }
 
   remove(usuario: any) {
-    return this.fire.collection('usuarios').doc(usuario.key).delete();
+    return this.fire.collection('usuario').doc(usuario.key).delete();
   }
 
 }
