@@ -7,20 +7,20 @@
     <ion-title>Pessoa Física</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content> 
-  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
-    <ion-item>
-      <ion-label position="floating">Nome Completo</ion-label>
+<ion-content color="medium"> 
+  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)" color="secondary">
+    <ion-item color="secondary">
+      <ion-label position="floating" >Nome Completo</ion-label>
       <ion-input type="text" [(ngModel)]="usuario.nome" name="nome" required></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="secondary">
       <ion-label position="floating">Nome de Usuário</ion-label>
       <ion-input type="text" [(ngModel)]="usuario.nickname" name="nickname" required></ion-input>
     </ion-item>
 
     <div *ngIf="!id">
-      <ion-item>
+      <ion-item color="secondary">
         <ion-label position="floating">E-mail</ion-label>
         <ion-input type="email" [(ngModel)]="usuario.email" name="email" required
           pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #e="ngModel"></ion-input>
@@ -29,7 +29,7 @@
         E-mail invalido!
       </ion-text>
 
-      <ion-item>
+      <ion-item color="secondary">
         <ion-label position="floating">Senha</ion-label>
         <ion-input type="password" [(ngModel)]="usuario.pws" name="pws" required minlength="6" #pws="ngModel">
         </ion-input>
@@ -39,7 +39,7 @@
         Senha muito curta.
       </ion-text>
 
-      <ion-item>
+      <ion-item color="secondary">
         <ion-label position="floating">Confirmar Senha</ion-label>
         <ion-input type="password" (ngModel)="conf" name="conf" required #conf="ngModel"></ion-input>
       </ion-item>
