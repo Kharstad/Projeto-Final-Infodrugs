@@ -38,7 +38,16 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'add-remedio',
+    loadChildren: () => import('./pages/add-remedio/add-remedio.module').then( m => m.AddRemedioPageModule)
+  },  {
+    path: 'perfil-remedio',
+    loadChildren: () => import('./pages/perfil-remedio/perfil-remedio.module').then( m => m.PerfilRemedioPageModule)
   }
+
+
 ];
 
 @NgModule({

@@ -40,6 +40,11 @@ export class AppComponent {
       title: 'Login',
       url: '/login',
       icon: 'person'
+    },
+    {
+      title: 'Add-remedio',
+      url: '/add-remedio',
+      icon: 'medical'
     }
   ];
 

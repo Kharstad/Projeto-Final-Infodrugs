@@ -59,7 +59,7 @@ export class AddUsuarioPage implements OnInit {
           this.presentLoading();
           this.presentAlert("Deu bom confia", "tu foi Cadastrado!");
           form.reset();
-          this.router.navigate(['/tabs/listPlayer']);
+          this.router.navigate(['home']);
         },
         erro => {
           console.log("Erro: " + erro);
@@ -72,7 +72,7 @@ export class AddUsuarioPage implements OnInit {
           this.presentLoading();
           this.presentAlert("Deu bom confia", "tu foi Atualizado!");
           form.reset();
-          this.router.navigate(['/tabs/listPlayer']);
+          this.router.navigate(['home']);
         },
         erro => {
           console.log("Erro: " + erro);

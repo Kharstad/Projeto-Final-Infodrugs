@@ -18,7 +18,7 @@ export class FarmaciaService {
     return this.afAuth.auth.createUserWithEmailAndPassword(farmacia.email, farmacia.pws)
       .then(
         res => {
-          return this.fire.collection('farmacia').doc(res.user.uid).set({
+          return this.fire.collection('pessoa-juridica').doc(res.user.uid).set({
             nome: farmacia.nome,
             nickname: farmacia.nickname,
             email: farmacia.email,
@@ -32,7 +32,7 @@ export class FarmaciaService {
   }
 
   getAll() {
-    return this.fire.collection('farmacia').snapshotChanges()
+    return this.fire.collection('pessoa-juridica').snapshotChanges()
       .pipe(
         map(dados =>
           dados.map(d => ({ key: d.payload.doc.id, ...d.payload.doc.data() }))
@@ -41,16 +41,16 @@ export class FarmaciaService {
   }
 
   get(id) {
-    return this.fire.collection('farmacia').doc<Farmacia>(id).valueChanges();
+    return this.fire.collection('pessoa-juridica').doc<Farmacia>(id).valueChanges();
   }
 
   update(farmacia: Farmacia, id: string) {
-    return this.fire.collection('farmacia').doc<Farmacia>(id)
+    return this.fire.collection('pessoa-juridica').doc<Farmacia>(id)
       .update(farmacia);
   }
 
   remove(farmacia: any) {
-    return this.fire.collection('farmacia').doc(farmacia.key).delete();
+    return this.fire.collection('pessoa-juridica').doc(farmacia.key).delete();
   }
 
 }

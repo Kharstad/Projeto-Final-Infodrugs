@@ -3,6 +3,12 @@
     <ion-title>Adicionar usuário</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content> 
+  <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
+    <ion-item>
+      <ion-label position="floating">Nome Completo</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nome" name="nome" required></ion-input>
+    </ion-item>
 
 <ion-content>
     
