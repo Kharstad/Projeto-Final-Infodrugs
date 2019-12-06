@@ -61,8 +61,28 @@
       <ion-button type="submit" color="primary" [disabled]="fc.invalid">Atualizar</ion-button>
       <ion-button type="reset" color="danger">Cancelar</ion-button>
     </ion-item>
-
-    
+    <ion-item>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input type="email" [(ngModel)]=usuario.email name="email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]=usuario.pws name="pws" minlength="6" #pws="ngModel" required #pws="ngModel"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="pws.invalid && pws.dirty">Senha muito curta</ion-text>
+    <ion-item>
+      <ion-label position="floating">Confirmar senha</ion-label>
+      <ion-input type="password" (ngModel)=conf name="conf" required #conf="ngModel"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="(pws.value != conf.value) && pws.dirty">Senha diferentes</ion-text>
+    <ion-item lines="none">
+      
+    </ion-item>
+    <ion-button type="sumbit"  slot="start" expand="block" color="primary" [disabled]="pws.invalid">Confirmar</ion-button>
+      <ion-button type="reset" slot="end"  expand="block" color="danger" [routerLink]="[('/home')]">Cancelar</ion-button>
   </form>
-    
+  <ion-content  id="map_canvas">
+    <div class="map"></div>
   </ion-content>
+  
+</ion-content>

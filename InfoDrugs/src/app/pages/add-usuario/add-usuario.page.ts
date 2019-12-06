@@ -1,18 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AlertController, Platform } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  Marker,
-  MarkerCluster,
-  LocationService,
-  MyLocation
-} from '@ionic-native/google-maps';
-import { Usuario } from 'src/app/model/usuario';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from '../../model/usuario';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UsuarioService } from '../../services/usuario.service';
+import { Platform, LoadingController, AlertController } from '@ionic/angular';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, Marker, MarkerCluster, MyLocation, LocationService, LatLng } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'app-add-usuario',
@@ -20,101 +12,108 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./add-usuario.page.scss'],
 })
 export class AddUsuarioPage implements OnInit {
-
-  protected usuario: Usuario = new Usuario;
   protected id: any = null;
-  protected posLat: number = 0;
-  protected posLng: number = 0;
+  protected usuario: Usuario = new Usuario;
   protected map: GoogleMap;
 
   constructor(
-    protected router: Router,
-    protected alertController: AlertController,
     protected usuarioService: UsuarioService,
-    protected geolocation: Geolocation,
-    protected platform: Platform,
+    private platform: Platform,
     protected activatedRoute: ActivatedRoute,
+    protected router: Router,
+    public alertController: AlertController,
+    public loadingController: LoadingController,
+    private geolocation: Geolocation,
   ) { }
 
   async ngOnInit() {
-    // Localização atual
-    this.localAtual();
-    // Plataforma e GoogleMaps
+    //this.localAtual();
     await this.platform.ready();
     await this.loadMap();
-    // Pega Id para autilaização dos dados do Usuário
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    if (this.id) {
+      this.usuarioService.get(this.id).subscribe(
+        res => {
+          this.usuario = res
+        },
+        erro => this.id = null
+      )
+    }
   }
 
   onsubmit(form) {
-    this.usuario.lat = this.posLat;
-    this.usuario.lng = this.posLng;
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.usuario.lat = resp.coords.latitude;
+      this.usuario.lng = resp.coords.longitude;
+      console.log(resp)
+    }).catch((error) => {
+      this.usuario.lat = 0;
+      this.usuario.lng = 0;
+      console.log('Error getting location', error);
+    });
     if (!this.id) {
       this.usuarioService.save(this.usuario).then(
         res => {
+          //console.log("Cadastrado");
+          this.presentLoading();
+          this.presentAlert("Deu bom confia", "tu foi Cadastrado!");
           form.reset();
-          this.usuario = new Usuario;
-          console.log('Cadastrado!');
-          this.presentAlert('Aviso', 'Cadastrado!')
-          this.router.navigate(['/']);
+          this.router.navigate(['home']);
         },
         erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel cadastrar!')
+          console.log("Erro: " + erro);
+          this.presentAlert("DEU ERRO, fuja para as colinas", "NAO Cadastrado! ou seja deu ruim")
         }
       )
     } else {
       this.usuarioService.update(this.usuario, this.id).then(
         res => {
+          this.presentLoading();
+          this.presentAlert("Deu bom confia", "tu foi Atualizado!");
           form.reset();
-          this.usuario = new Usuario;
-          this.presentAlert('Aviso', 'Atualizado!')
-          this.router.navigate(['/tabs/perfilUsuario', this.id]);
+          this.router.navigate(['home']);
         },
         erro => {
-          console.log('Erro: ' + erro);
-          this.presentAlert('Erro', 'Não foi possivel atualizar!')
+          console.log("Erro: " + erro);
+          this.presentAlert("DEU ERRO, fuja para as colinas", "NAO atualizado! ou seja deu ruim")
         }
       )
     }
   }
-
-  localAtual() {
-    this.geolocation.getCurrentPosition().then(
-      resp => {
-        this.posLat = resp.coords.latitude;
-        this.posLng = resp.coords.longitude;
-      }).catch(
-        error => {
-          console.log('Não foi possivel pegar sua localização!', error);
-        });
-  }
-
-  // Alerts-------------------
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
       header: tipo,
-      // subHeader: 'Subtitle',
       message: texto,
-      buttons: ['OK']
+      buttons: ['Sendo assim sim']
     });
+  
     await alert.present();
   }
-
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'tamo te cadastrando pera ae',
+      duration: 2000
+    });
+    await loading.present();
+  
+    const { role, data } = await loading.onDidDismiss();
+  
+    console.log('Loading dismissed!');
+  }
   loadMap() {
     this.map = GoogleMaps.create('map_canvas', {
       'camera': {
         'target': {
-          "lat": this.posLat,
-          "lng": this.posLng
+          "lat": this.usuario.lat,
+          "lng": this.usuario.lng,
         },
-        'zoom': 15
+        'zoom': 18
       }
     });
-    // this.addCluster(this.dummyData());
+    //this.addCluster(this.dummyData());
     this.minhaLocalizacao();
   }
-
   minhaLocalizacao() {
     LocationService.getMyLocation().then(
       (myLocation: MyLocation) => {
@@ -123,36 +122,42 @@ export class AddUsuarioPage implements OnInit {
             target: myLocation.latLng
           }
         })
-        // Adiciona marcador no Mapa
+        //marcadores
         let marker: Marker = this.map.addMarkerSync({
           position: {
             lat: myLocation.latLng.lat,
             lng: myLocation.latLng.lng
           },
-          icon: '#00ff00',
-          title: 'Titulo',
-          snippet: 'Comentário'
+          icon: "#00ff00",
+          title: this.usuario.nome,
+          snippet: this.usuario.nickname,
         })
-        // adicionar eventos no mapa
-        marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(
+        //adicionar eventos ao mapa
+        this.map.on(GoogleMapsEvent.MARKER_CLICK).subscribe(
           res => {
             marker.setTitle(this.usuario.nome)
             marker.setSnippet(this.usuario.nickname)
             marker.showInfoWindow()
           }
         )
-        // colocar pontos extras
+        //colocar pontos extras
         this.map.on(GoogleMapsEvent.MAP_CLICK).subscribe(
           res => {
-            this.map.addMarker({
-              position: {
-                lat: res[0].lat,
-                lng: res[0].lng
-              }
-            })
+            console.log(res)
+            // this.map.addMarker({
+            //   position: {
+            //     lat: res[0].lat,
+            //     lng: res[0].lng
+            //   }
+            // })
+            marker.setPosition(res[0])
           }
         )
       }
-    )
+    );
   }
-}
+  }
+  
+
+
+

@@ -27,19 +27,20 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule,AngularFireModule.initializeApp(environment.firebaseConfig),
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
-    GooglePlus, 
+    GooglePlus,
+    Camera,
     Device,
     AndroidPermissions,
-    Camera,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
