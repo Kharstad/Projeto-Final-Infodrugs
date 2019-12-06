@@ -9,27 +9,6 @@
 </ion-toolbar>
 
 <ion-content>
-        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-          <ion-fab-button color="danger" routerLink="/add-remedio">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-
-          
-          <ion-content>
-            <ion-list *ngIf="remedios">
-              <ion-item-sliding *ngFor="let r of remedio">
-          
-                <ion-item routerLink="/perfil-remedio/{{r.key}}">
-                  <ion-avatar slot="start">
-                  </ion-avatar>
-                  <ion-label>{{ r.nome }}</ion-label>
-                </ion-item>
-              </ion-item-sliding>
-          
-              <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-                <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
-                </ion-refresher-content>
-              </ion-refresher>
-
+</ion-content>
 
 

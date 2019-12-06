@@ -12,13 +12,13 @@
   <form #fc="ngForm" (ngSubmit)="onSubmit(fc)" color="medium">
 
     <ion-item color="medium">
-      <ion-label position="floating">E-mail</ion-label>
-      <ion-input type="email" name="email" [(ngModel)]="email" #e="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></ion-input>
+      <ion-label position="floating" color="dark">E-mail</ion-label>
+      <ion-input type="email" name="email" color="dark" [(ngModel)]="email" #e="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></ion-input>
     </ion-item>
 
     <ion-item color="medium">
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" name="pws" [(ngModel)]="pws" #p="ngModel" minlength="6" required></ion-input>
+      <ion-label position="floating" color="dark">Senha</ion-label>
+      <ion-input type="password" name="pws" color="dark" [(ngModel)]="pws" #p="ngModel" minlength="6" required></ion-input>
     </ion-item>
 
     <ion-item lines="none" color="medium">
