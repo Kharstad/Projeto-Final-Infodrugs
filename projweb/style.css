@@ -1,0 +1,38 @@
+*{
+    color:rgba(8, 8, 8, 0.705);
+    /* text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000; */
+    background-color:  #A2DBCD;
+}
+header{
+    text-align: center;
+     margin: 0 auto; 
+    border-bottom: 3px solid #808080; 
+
+    
+}
+a {
+    width: 160px;
+    padding: 20px;
+}
+body{
+    background-color: black;
+    
+}
+figure{
+    display: inline-block;
+    margin: 0 auto; 
+    text-align: center;
+    padding: 20px;
+    
+}
+nav-item{
+    border-radius: 50px;
+    border: 1px solid rgb(4, 0, 255);
+}
+
+footer{
+    width: 214px;
+    background-color:  #A2DBCD;
+    /* background: url(imgs/remedio.png) center center/214px no-repeat; */
+    background-size: absolute;
+}
