@@ -16,15 +16,20 @@
     </ion-item>
 
     <ion-item color="secondary">
-      <ion-label position="floating">Nome de Usuário</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.nickname" name="nickname" required></ion-input>
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.cpf" name="cpf" placeholder="Ex.: 000.000.000-00" required minlength="11" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required #cpf="ngModel"></ion-input>
     </ion-item>
+
+    <ion-text color="danger" *ngIf="cpf.invalid && cpf.dirty" class="ion-padding">
+      CPF inválido
+    </ion-text>
 
     <ion-item color="secondary">
       <ion-label position="floating" style="font-size: 1.4rem;">Tipo de Conta</ion-label>
       <ion-select placeholder="" position="floating" [(ngModel)]="usuario.tipo" name="tipo" required>
-        <ion-select-option value="fisica">Pessoa Física</ion-select-option>
-        <ion-select-option value="juridica">Pessoa Jurídica</ion-select-option>
+        <ion-select-option value="usuario_cliente">Usuário Cliente</ion-select-option>
+        <ion-select-option value="admin_farmacia">Administrador Farmácia</ion-select-option>
+        <ion-select-option value="admin_fornecedor">Administrador Fornecedor</ion-select-option>
       </ion-select>
     </ion-item>
 

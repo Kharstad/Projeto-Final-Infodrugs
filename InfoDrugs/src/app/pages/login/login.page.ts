@@ -5,6 +5,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,10 @@ import { Device } from '@ionic-native/device/ngx';
 export class LoginPage implements OnInit {
   protected email: string = "";
   protected pws: string = "";
+  protected id: any = null;
 
   constructor(
+    public usuarioService: UsuarioService,
     public afAuth: AngularFireAuth,
     protected alertController: AlertController,
     public loadingController: LoadingController,
@@ -35,7 +38,7 @@ login() {
     res => {
       console.log(res.user);
       this.dismmissLoading();
-      this.router.navigate(['/perfil-usuario/:id']);
+      this.router.navigate(['/perfilUsuario', this.id]);
     },
     erro => {
       console.log("Erro" + erro);
@@ -50,12 +53,12 @@ logout() {
   this.afAuth.auth.signOut();
 }
 loginGoogle() {
-  console.log('Device platform is: ' + this.device.platform);
+  console.log('Device platform is: ' + this.device.platform, this.id);
   if(this.device.platform == "browser"){
   this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
     res => {
       console.log(res);
-      this.router.navigate(['/'])
+      this.router.navigate(['/pages/perfil-usuario',this.id])
     },
     erro => {
       console.log("ERRO: ", erro )
