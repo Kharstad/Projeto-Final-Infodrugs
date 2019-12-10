@@ -23,6 +23,7 @@ export class UsuarioService {
             nickname: usuario.nickname,
             email: usuario.email,
             pws: usuario.pws,
+            tipo: usuario.tipo,
             ativo: usuario.ativo,
             lat: usuario.lat,
             lng: usuario.lng

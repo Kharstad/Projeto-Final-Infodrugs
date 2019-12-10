@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddRemedioPageRoutingModule } from './add-remedio-routing.module';
+import { PerfilFarmaciaPageRoutingModule } from './perfil-farmacia-routing.module';
 
-import { AddRemedioPage } from './add-remedio.page';
+import { PerfilFarmaciaPage } from './perfil-farmacia.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddRemedioPageRoutingModule
+    PerfilFarmaciaPageRoutingModule
   ],
-  declarations: [AddRemedioPage]
+  declarations: [PerfilFarmaciaPage]
 })
-export class AddRemedioPageModule {}
+export class PerfilFarmaciaPageModule {}

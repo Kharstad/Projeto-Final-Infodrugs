@@ -35,6 +35,7 @@ login() {
     res => {
       console.log(res.user);
       this.dismmissLoading();
+      this.router.navigate(['/perfil-usuario/:id']);
     },
     erro => {
       console.log("Erro" + erro);

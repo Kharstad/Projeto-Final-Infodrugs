@@ -40,12 +40,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'add-remedio',
-    loadChildren: () => import('./pages/add-remedio/add-remedio.module').then( m => m.AddRemedioPageModule)
-  },  {
-    path: 'perfil-remedio',
-    loadChildren: () => import('./pages/perfil-remedio/perfil-remedio.module').then( m => m.PerfilRemedioPageModule)
+    path: 'perfil-usuario/:id',
+    loadChildren: () => import('./pages/perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
+  },
+  {
+    path: 'perfil-farmacia/:id',
+    loadChildren: () => import('./pages/perfil-farmacia/perfil-farmacia.module').then( m => m.PerfilFarmaciaPageModule)
   }
+
 
 
 ];

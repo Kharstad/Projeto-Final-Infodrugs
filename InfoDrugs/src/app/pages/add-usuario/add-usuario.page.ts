@@ -55,28 +55,26 @@ export class AddUsuarioPage implements OnInit {
     if (!this.id) {
       this.usuarioService.save(this.usuario).then(
         res => {
-          //console.log("Cadastrado");
-          this.presentLoading();
-          this.presentAlert("Deu bom confia", "tu foi Cadastrado!");
+          console.log("Cadastrado");
+          this.presentAlert("Sucesso", "Cadastro realizado!");
           form.reset();
           this.router.navigate(['home']);
         },
         erro => {
           console.log("Erro: " + erro);
-          this.presentAlert("DEU ERRO, fuja para as colinas", "NAO Cadastrado! ou seja deu ruim")
+          this.presentAlert("Ops!", "Erro: Cadastro não atualizado!")
         }
       )
     } else {
       this.usuarioService.update(this.usuario, this.id).then(
         res => {
-          this.presentLoading();
-          this.presentAlert("Deu bom confia", "tu foi Atualizado!");
+          this.presentAlert("Sucesso", "Cadastro atualizado!");
           form.reset();
           this.router.navigate(['home']);
         },
         erro => {
           console.log("Erro: " + erro);
-          this.presentAlert("DEU ERRO, fuja para as colinas", "NAO atualizado! ou seja deu ruim")
+          this.presentAlert("Ops!", "Erro: Cadastro não atualizado!")
         }
       )
     }
@@ -85,21 +83,10 @@ export class AddUsuarioPage implements OnInit {
     const alert = await this.alertController.create({
       header: tipo,
       message: texto,
-      buttons: ['Sendo assim sim']
+      buttons: ['Okay']
     });
   
     await alert.present();
-  }
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      message: 'tamo te cadastrando pera ae',
-      duration: 2000
-    });
-    await loading.present();
-  
-    const { role, data } = await loading.onDidDismiss();
-  
-    console.log('Loading dismissed!');
   }
   loadMap() {
     this.map = GoogleMaps.create('map_canvas', {
