@@ -43,10 +43,6 @@ const routes: Routes = [
     path: 'perfil-usuario/:id',
     loadChildren: () => import('./pages/perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
   },
-  {
-    path: 'perfil-farmacia/:id',
-    loadChildren: () => import('./pages/perfil-farmacia/perfil-farmacia.module').then( m => m.PerfilFarmaciaPageModule)
-  }
 
 
 
