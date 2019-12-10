@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from '../../model/usuario';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,7 @@ export class LoginPage implements OnInit {
   protected email: string = "";
   protected pws: string = "";
   protected id: any = null;
+  protected usuario: Usuario = new Usuario;
 
   constructor(
     public usuarioService: UsuarioService,
@@ -38,7 +40,7 @@ login() {
     res => {
       console.log(res.user);
       this.dismmissLoading();
-      this.router.navigate(['/perfilUsuario', this.id]);
+      this.router.navigate(['/perfil-usuario/{usuario.key}']);
     },
     erro => {
       console.log("Erro" + erro);
@@ -53,12 +55,12 @@ logout() {
   this.afAuth.auth.signOut();
 }
 loginGoogle() {
-  console.log('Device platform is: ' + this.device.platform, this.id);
+  console.log('Device platform is: ' + this.device.platform);
   if(this.device.platform == "browser"){
   this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
     res => {
       console.log(res);
-      this.router.navigate(['/pages/perfil-usuario',this.id])
+      this.router.navigate(['/'])
     },
     erro => {
       console.log("ERRO: ", erro )

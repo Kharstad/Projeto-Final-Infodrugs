@@ -20,7 +20,7 @@ export class UsuarioService {
         res => {
           return this.fire.collection('usuario').doc(res.user.uid).set({
             nome: usuario.nome,
-            nickname: usuario.nickname,
+            cpf: usuario.cpf,
             email: usuario.email,
             pws: usuario.pws,
             tipo: usuario.tipo,

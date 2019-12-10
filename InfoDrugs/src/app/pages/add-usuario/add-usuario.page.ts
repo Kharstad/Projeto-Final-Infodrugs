@@ -58,7 +58,7 @@ export class AddUsuarioPage implements OnInit {
           console.log("Cadastrado");
           this.presentAlert("Sucesso", "Cadastro realizado!");
           form.reset();
-          this.router.navigate(['/pages/perfil-usuario', this.id]);
+          this.router.navigate(['/perfil-usuario', this.id]);
         },
         erro => {
           console.log("Erro: " + erro);
@@ -70,7 +70,7 @@ export class AddUsuarioPage implements OnInit {
         res => {
           this.presentAlert("Sucesso", "Cadastro atualizado!");
           form.reset();
-          this.router.navigate(['/pages/perfil-usuario', this.id]);
+          this.router.navigate(['/perfil-usuario', this.id]);
         },
         erro => {
           console.log("Erro: " + erro);
