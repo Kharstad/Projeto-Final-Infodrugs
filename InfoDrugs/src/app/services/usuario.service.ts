@@ -46,8 +46,7 @@ export class UsuarioService {
   }
 
   update(usuario: Usuario, id: string) {
-    return this.fire.collection('usuario').doc<Usuario>(id)
-      .update(usuario);
+    return this.fire.collection('usuario').doc<Usuario>(id).update(usuario);
   }
 
   remove(usuario: any) {
