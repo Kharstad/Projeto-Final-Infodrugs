@@ -36,7 +36,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="local.html">
+            <a class="nav-link" href="mapa.php">
                 <h4>Farmácias Proximas</h4>
             </a>
         </li>
@@ -50,16 +50,18 @@
     <input type="submit" value="ENVIAR">
 </form> -->
 
-</body>
+
+
 <footer>
 <h1>Pesquisar Remédios</h1>
 <form method="POST" action="pesquisar.php">
     <input tupe="text" name="pesquisar" placeholder="Pesquisar" >
     <input type="submit" value="ENVIAR">
+    
 </form>
-
-    <!-- <div class="foto">
-            <img src="imgs/remedio.png">
-        </div>  -->
+ <!-- <div class="foto">
+            <img src="imgs/fufu.png">
+        </div>   -->
 </footer>
+</body>
 </html>

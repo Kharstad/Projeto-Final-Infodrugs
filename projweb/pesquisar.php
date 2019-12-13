@@ -34,7 +34,7 @@
     $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
     
     $pesquisar = $_POST['pesquisar'];
-    $result_cursos = "SELECT * FROM `cursos` WHERE nome_curso LIKE '%{$pesquisar}%' OR teste_curso LIKE '%{$pesquisar}%' LIMIT 5";
+    $result_cursos = "SELECT * FROM `farmacia` WHERE nome_remedio LIKE '%{$pesquisar}%' OR info_remedio LIKE '%{$pesquisar}%' LIMIT 5";
     $conn->query("SET NAMES 'utf8'");
 $conn->query('SET character_set_connection=utf8');
 $conn->query('SET character_set_client=utf8');
@@ -44,7 +44,7 @@ $conn->query('SET character_set_results=utf8');
     $resultado_cursos = mysqli_query($conn, $result_cursos);
     
     while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){
-        echo "Nome do Remédio / Função: ".$rows_cursos['teste_curso']."<br>";
+        echo "Nome do Remédio / Função: ".$rows_cursos['info_remedio']."<br>";
     }
 ?>
 </body>

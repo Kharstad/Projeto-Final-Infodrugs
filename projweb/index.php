@@ -39,7 +39,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="local.html">
+            <a class="nav-link" href="mapa.php">
                 <h4>Farmácias Proximas</h4>
             </a>
         </li>
@@ -51,7 +51,7 @@
 <footer>
      
     <div class="foto">
-            <img src="imgs/remedio.png">
+            <img src="imgs/fufu.png">
         </div> 
 </footer>
 </html>
