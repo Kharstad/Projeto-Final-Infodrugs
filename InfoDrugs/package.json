@@ -32,12 +32,18 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
     "@ionic/app-scripts": "^3.2.4",
+    "android": "0.0.8",
+    "cordova": "^9.0.0",
+    "cordova-android": "8.1.0",
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase-config": "^4.0.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googleplus": "^8.2.0",
+    "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-support-android-plugin": "^1.0.1",
+    "cordova-support-google-services": "^1.3.2",
     "core-js": "^2.5.4",
     "firebase": "^7.5.0",
     "firebase-tools": "^7.8.1",
@@ -80,12 +86,26 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-firebase-config": {},
+      "cordova-plugin-firebase-config": {
+        "FIREBASE_ANALYTICS_VERSION": "17.2.+",
+        "FIREBASE_CONFIG_VERSION": "19.0.+"
+      },
       "cordova-plugin-geolocation": {},
       "cordova-plugin-googleplus": {},
       "cordova-plugin-device": {},
       "cordova-plugin-android-permissions": {},
-      "cordova-plugin-camera": {}
-    }
+      "cordova-plugin-camera": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
   }
 }

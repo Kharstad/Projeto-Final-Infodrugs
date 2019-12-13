@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil-usuario</ion-title>
+    <ion-title>Perfil do usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<ion-item>
+  <ion-text>nome do usuario {{usuario.nome}}</ion-text><p></p>
+</ion-item> 
+<ion-item>
+  <ion-text>E-mail {{usuario.email}}</ion-text><p></p>
+</ion-item>  
+<ion-button (click)="editar(p)" expandable>
+  Editar
+</ion-button>
 </ion-content>
+
+

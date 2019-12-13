@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../model/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, Marker, MarkerCluster, MyLocation, LocationService, LatLng, Circle } from '@ionic-native/google-maps';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -16,7 +18,9 @@ export class PerfilUsuarioPage implements OnInit {
 
   constructor(
     protected usuarioService: UsuarioService,
-    protected activatedRouter: ActivatedRoute
+    protected activatedRouter: ActivatedRoute,
+    private platform: Platform,
+    private geolocation: Geolocation,
   ) { }
 
   ngOnInit() {
