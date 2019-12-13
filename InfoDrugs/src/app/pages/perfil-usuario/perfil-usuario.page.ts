@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../model/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
+<<<<<<< HEAD
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, Marker, MarkerCluster, MyLocation, LocationService, LatLng, Circle } from '@ionic-native/google-maps';
 import { Platform } from '@ionic/angular';
+=======
+>>>>>>> 6fca97ba3519f1127a1c0eedd3cd8c3b69e1da0f
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -18,6 +21,7 @@ export class PerfilUsuarioPage implements OnInit {
 
   constructor(
     protected usuarioService: UsuarioService,
+<<<<<<< HEAD
     protected activatedRouter: ActivatedRoute,
     private platform: Platform,
     private geolocation: Geolocation,
@@ -26,6 +30,14 @@ export class PerfilUsuarioPage implements OnInit {
   ngOnInit() {
     this.id = this.activatedRouter.snapshot.paramMap.get("id");
     if (this.id) {
+=======
+    protected activatedRoute: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    if(this.id){
+>>>>>>> 6fca97ba3519f1127a1c0eedd3cd8c3b69e1da0f
       this.usuarioService.get(this.id).subscribe(
         res => {
           this.usuario = res

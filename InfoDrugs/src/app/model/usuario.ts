@@ -1,7 +1,7 @@
 export class Usuario {
     id: string;
     nome: string;
-    nickname: string;
+    cpf: string;
     email: string;
     pws: string;
     tipo: string;

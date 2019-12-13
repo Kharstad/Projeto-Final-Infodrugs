@@ -58,7 +58,7 @@ export class AddUsuarioPage implements OnInit {
           console.log("Cadastrado");
           this.presentAlert("Sucesso", "Cadastro realizado!");
           form.reset();
-          this.router.navigate(['home']);
+          this.router.navigate(['/perfil-usuario', this.id]);
         },
         erro => {
           console.log("Erro: " + erro);
@@ -70,7 +70,7 @@ export class AddUsuarioPage implements OnInit {
         res => {
           this.presentAlert("Sucesso", "Cadastro atualizado!");
           form.reset();
-          this.router.navigate(['home']);
+          this.router.navigate(['/perfil-usuario', this.id]);
         },
         erro => {
           console.log("Erro: " + erro);
@@ -117,13 +117,13 @@ export class AddUsuarioPage implements OnInit {
           },
           icon: "#00ff00",
           title: this.usuario.nome,
-          snippet: this.usuario.nickname,
+          snippet: this.usuario.cpf,
         })
         //adicionar eventos ao mapa
         this.map.on(GoogleMapsEvent.MARKER_CLICK).subscribe(
           res => {
             marker.setTitle(this.usuario.nome)
-            marker.setSnippet(this.usuario.nickname)
+            marker.setSnippet(this.usuario.cpf)
             marker.showInfoWindow()
           }
         )
