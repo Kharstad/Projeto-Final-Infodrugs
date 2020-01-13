@@ -8,33 +8,33 @@
   <ion-icon slot="end" style="padding-right: 20px;" size="large" name="return-left" routerLink="/"></ion-icon>
 </ion-toolbar>
 
-<ion-content color="medium">
-  <form #fc="ngForm" (ngSubmit)="onSubmit(fc)" color="medium">
+<ion-content>
+  <form #fc="ngForm" (ngSubmit)="onSubmit(fc)" lines="none">
 
-    <ion-item color="medium">
+    <ion-item style="margin-top: 15%" lines="none">
       <ion-label position="floating" color="dark">E-mail</ion-label>
       <ion-input type="email" name="email" color="dark" [(ngModel)]="email" #e="ngModel" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"></ion-input>
     </ion-item>
 
-    <ion-item color="medium">
+    <ion-item lines="none">
       <ion-label position="floating" color="dark">Senha</ion-label>
       <ion-input type="password" name="pws" color="dark" [(ngModel)]="pws" #p="ngModel" minlength="6" required></ion-input>
     </ion-item>
 
-    <ion-item lines="none" color="medium">
+    <ion-item lines="none">
     <ion-text color="danger" *ngIf="p.invalid && p.dirty">
       <strong>Senha muito curta!</strong>
     </ion-text>
   </ion-item>
 
-    <ion-item lines="none" color="medium">
+    <ion-item lines="none">
       <ion-button expand="block" fill="solid" color="success" size="large" type="submit" [disabled]="fc.invalid">Entrar</ion-button>
       <ion-button expand="block" color="danger" size="large" slot="end" style=margin:20px; type="reset" [routerLink]="[('/home')]">Cancelar</ion-button>
     </ion-item>
 
 </form>
 
-<ion-content padding lines="none" color="medium">
+<ion-content padding lines="none">
   <ion-button expand="block" fill="solid" color="primary" (click)="loginGoogle()">
     <ion-icon slot="start" name="logo-google" lines="none"></ion-icon>
     Entrar com Google
