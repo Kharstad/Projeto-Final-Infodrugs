@@ -44,7 +44,8 @@ $conn->query('SET character_set_results=utf8');
     $resultado_cursos = mysqli_query($conn, $result_cursos);
     
     while($rows_cursos = mysqli_fetch_assoc($resultado_cursos)){
-        echo "Nome do Remédio / Função: ".$rows_cursos['info_remedio']."<br>";
+        echo "Nome do Remédio: ".$rows_cursos['nome_remedio']."<br>";
+        echo "Função: ".$rows_cursos['info_remedio']."<br>";
     }
 ?>
 </body>

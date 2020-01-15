@@ -7,45 +7,25 @@
     <link rel="stylesheet" type="text/css" media="screen" href="mapa.css">
     <script src="main.js"></script>
     <link rel="shortcut icon" href="imgs/a.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body style="background-color:  #A2DBCD;">
+<header class="text-center">
+<img src="imgs/logo.png" style="width: 12rem; height: 12rem">
+</header>
 
-  </head>
-<header>
-<div class="foto">
-            
-            <img src="imgs/logo.png" style="width: 12rem; height: 12rem">
+<hr>
+<nav  class="text-center">
+    <h4 class="d-inline"><a class="p-4 text-dark" href="index.php">Início</a></h4>
+    <h4 class="d-inline"><a class="p-4 text-dark" href="form.php">Pesquisar bula do medicamento</a></h4>
+    <h4 class="d-inline"><a class="p-4 text-dark" href="mapa.php">Farmácias Proximas</a></h4>
+</nav>
 
-        </div>
-        </header>
-  <body style="background-color:  #A2DBCD;">
-
-
-
-<ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link active" href="index.php">
-                <h4>Home</h4>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="form.php">
-                <h4>Preços</h4>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="indexi.php">
-                <h4>Farmácias Proximas</h4>
-            </a>
-        </li>
-    </ul>
-    <figure>
-        <img src="" alt="">
-    </figure>
-    
-    <div id="map"></div><br><br>
-    
-    <div align="center">
+    <hr>
+    <div id="map"></div><h4>
+<hr>
+<div align="center">
   <a class="buttonc" href="cadastrar.php">Cadastrar</a>
 </div>
 
@@ -122,8 +102,14 @@
 
       function doNothing() {}
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlSV0YyhooOh3RQYrsK111ThLKQX5hdTU&callback=initMap">
-    </script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlSV0YyhooOh3RQYrsK111ThLKQX5hdTU&callback=initMap"></script>
+
+<hr>
+<footer class="text-light text-center p-2" style="background: rgba(7, 12, 7, 0.808)">
+    &copy; 
+    Copyright 2019 Info-Drugs.
+</footer>
+
   </body>
 </html>
