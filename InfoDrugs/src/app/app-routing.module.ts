@@ -55,6 +55,11 @@ const routes: Routes = [
     path: 'perfil-usuario',
     loadChildren: () => import('./pages/perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
   },
+  {
+    path: 'add-remedio',
+    loadChildren: () => import('./pages/add-remedio/add-remedio.module').then( m => m.AddRemedioPageModule)
+  },
+
 
 
 

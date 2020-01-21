@@ -2,13 +2,48 @@
   <ion-buttons slot="start">
     <ion-menu-button></ion-menu-button>
   </ion-buttons>
+  <ion-icon slot="end" style="padding-right: 20px;" size="large" name="return-left" routerLink="../home"></ion-icon>
   <ion-title>
     Catálogo de Preços
   </ion-title>
-  <ion-icon slot="end" style="padding-right: 20px;" size="large" name="return-left" routerLink="/"></ion-icon>
 </ion-toolbar>
 
 <ion-content>
-</ion-content>
+
+  <ion-list *ngIf="remedios">
+
+      <ion-item-sliding *ngFor="let u of remedios">
+          <ion-item-options side="start">
+            <ion-item-option (click)="editar(u)" expandable>
+              Editar
+            </ion-item-option>
+          </ion-item-options> 
+
+
+    <ion-item  routerLink="/tabs/perfil-remedio/{{u.key}}">
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>nome: {{ u.nome }}</ion-label>
+    </ion-item>
+
+
+  <ion-item-options side="end">
+      <ion-item-option (click)="apagar(u)" color="danger" expandable>
+        Deletar
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<ion-content>
 
 

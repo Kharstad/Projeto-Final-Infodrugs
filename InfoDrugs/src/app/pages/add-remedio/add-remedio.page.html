@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adicionar remédio</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-icon slot="end" style="padding-right: 20px;" size="large" name="return-left" routerLink="../home"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content color="medium"> 
+    <form #fc="ngForm" (ngSubmit)="onsubmit(fc)" color="secondary">
+      <ion-item color="secondary">
+        <ion-label position="floating">Nome do remedio</ion-label>
+        <ion-input type="text" [(ngModel)]="remedio.nome" name="nome" required></ion-input>
+      </ion-item>
+  
+      <ion-item color="secondary">
+        <ion-label position="floating">Quantidade</ion-label>
+        <ion-input type="text" [(ngModel)]="remedio.quantidade" name="quantidade" required></ion-input>
+      </ion-item>
+
+        <ion-item color="secondary">
+          <ion-label position="floating">Preço</ion-label>
+          <ion-input type="text" [(ngModel)]="remedio.preco" name="preco" required></ion-input>     
+        </ion-item>
+  
+        <ion-item color="secondary">
+          <ion-label position="floating">Descrição do remedio</ion-label>
+          <ion-input type="text" [(ngModel)]="remedio.descricao" name="descricao" required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item color="secondary">
+          <ion-label position="floating">Nome da farmacia</ion-label>
+          <ion-input type="text" [(ngModel)]="remedio.farmacia" name="farmacia" required>
+          </ion-input>
+        </ion-item>
+  
+          <ion-button type="submit" color="primary" expand="block" slot="end" [disabled]="fc.invalid">Salvar</ion-button>
+          <ion-button type="reset" slot="start" expand="block" color="danger">Cancelar</ion-button>
+  
+    </form>
+  
+</ion-content>

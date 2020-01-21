@@ -1,5 +1,6 @@
 export class Remedio {
-    nome: string;
+    id: string;
+    nome:string;
     descricao:string;
     quantidade:string;
     preco:string;

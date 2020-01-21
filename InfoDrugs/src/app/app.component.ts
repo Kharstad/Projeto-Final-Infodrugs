@@ -41,6 +41,11 @@ export class AppComponent {
       url: '/login',
       icon: 'person'
     },
+    {
+      title: 'add-remedio',
+      url: '/add-remedio',
+      icon: 'person'
+    },
   ];
 
   constructor(

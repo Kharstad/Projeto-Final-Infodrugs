@@ -43,7 +43,7 @@ export class AddFarmaciaPage implements OnInit {
     // Plataforma e GoogleMaps
     await this.platform.ready();
     await this.loadMap();
-    // Pega Id para autilaização dos dados do Usuário
+    // Pega Id ara autilaização dos dados do Usuário
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
   }
 
