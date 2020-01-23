@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
   {
-    path: 'add-farmacia',
-    loadChildren: () => import('./pages/add-farmacia/add-farmacia.module').then( m => m.AddFarmaciaPageModule)
-  },
-  {
     path: 'add-usuario',
     loadChildren: () => import('./pages/add-usuario/add-usuario.module').then( m => m.AddUsuarioPageModule)
   },

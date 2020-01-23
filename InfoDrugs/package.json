@@ -44,6 +44,7 @@
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-firebase-config": "^4.0.0",
     "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-googlemaps": "2.6.2",
     "cordova-plugin-googleplus": "^8.2.0",
     "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-support-android-plugin": "^1.0.1",
@@ -57,7 +58,7 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.801.2",
-    "@angular-devkit/build-angular": "~0.801.2",
+    "@angular-devkit/build-angular": "^0.803.23",
     "@angular-devkit/core": "~8.1.2",
     "@angular-devkit/schematics": "~8.1.2",
     "@angular/cli": "~8.1.2",
@@ -106,10 +107,12 @@
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-googlemaps": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

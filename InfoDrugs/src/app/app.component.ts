@@ -42,9 +42,9 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'add-remedio',
+      title: 'Adicionar Produto',
       url: '/add-remedio',
-      icon: 'person'
+      icon: 'basket'
     },
   ];
 
