@@ -11,25 +11,44 @@
     <ion-card class="welcome-card" color="secondary" style="margin-top: 5%;">
       <img src="/assets/med.jpg" alt="" />
       <ion-card-header>
-        <ion-card-title>Seja Bem vindo(a)!</ion-card-title>
+        <ion-card-title style="text-align: center;">Seja Bem vindo(a)!</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <p class="welcome-card-content">InfoDrugs tem a intenção de te ajudar e facilitar na compra e obtenção de remédios.</p>
       </ion-card-content>
     </ion-card>
     <label class="flex-centralizado">
-      <ion-card class="bg" color="secondary">
+      <ion-card id="a" class="bg" color="secondary">
         <a href="/catalogo-preco">
-        <img class="icone-home" src="/assets/price.png" alt="" />
+          <img class="icone-home" src="/assets/price.png" alt="" />
         </a>
+        <label class="centered">Preços</label>
       </ion-card>
-      <ion-card class="bg" color="secondary">
-        <a href="/localizar-farmacia">
-        <img class="icone-home" src="/assets/map.png" alt="" />
+      <ion-card id="a" class="bg" color="secondary">
+        <a href="/localizar-farmacia" >
+          <img class="icone-home" src="/assets/map.png" alt="" />
         </a>
+        <label class="centered">Mapa</label>
       </ion-card>
-      <ion-card class="bg" color="secondary">
-        <img class="icone-home" src="/assets/in.png" alt="" />
+      <ion-card id="a" class="bg" color="secondary">
+        <a href="/login">
+          <img class="icone-home" src="/assets/user.png"/>
+        </a>
+        <label class="centered">Login</label>
+      </ion-card>
+    </label>
+    <label class="flex-centralizado">
+      <ion-card id="a" class="bg" color="secondary">
+        <a href="/duvidas">
+          <img class="icone-home" src="/assets/in.png" alt="" />
+        </a>
+        <label class="centered">Dúvidas</label>
+      </ion-card>
+      <ion-card id="a" class="bg" color="secondary">
+        <a href="/login">
+          <img class="icone-home" src="/assets/user2.png"/>
+        </a>
+        <label class="centered">Cadastro</label>
       </ion-card>
     </label>
   </ion-content>
