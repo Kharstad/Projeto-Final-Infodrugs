@@ -4,7 +4,7 @@
 }
 .img-menu-barra{
   width: 7rem;
-  height: 6rem;
+  height: 7rem;
   align-content: center;
   margin: 0 auto;
   position: absolute;
@@ -20,9 +20,9 @@
   align-items: center;
 }
 .icone-home{
-  width: 5rem;
-  height: 5rem;
-  padding: 5px;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
 }
 .flex-centralizado {
   display: flex;
@@ -47,4 +47,10 @@ label{
 }
 #a{
   padding: 15px;
+}
+a{
+  text-align: center;
+}
+ion-card{
+  text-align: center;
 }
