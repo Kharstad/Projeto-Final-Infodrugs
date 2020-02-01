@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil-remedio</ion-title>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    <ion-title>Mais informações</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <ion-item>
+    <ion-label>nome: {{remedio.nome}}</ion-label>
+    <p></p>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descrição: {{remedio.descricao}}</ion-label>
+    <p></p>
+  </ion-item>
+  <ion-item>
+    <ion-label>Quantidade: {{remedio.quantidade}}</ion-label>
+    <p></p>
+  </ion-item>
+  <ion-item>
+    <ion-label>Média de preço: {{remedio.preco}}</ion-label>
+    <p></p>
+  </ion-item>
+  <ion-item>
+    <ion-label>Farmácia: {{remedio.farmacia}}</ion-label>
+    <p></p>
+  </ion-item>
 </ion-content>

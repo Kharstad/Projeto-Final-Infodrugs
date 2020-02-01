@@ -56,22 +56,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/add-remedio/add-remedio.module').then( m => m.AddRemedioPageModule)
   },
   {
-    path: 'pages',
-    loadChildren: () => import('./perfil-remedio/pages/pages.module').then( m => m.PagesPageModule)
+    path: 'perfil-remedio',
+    loadChildren: () => import('./pages/perfil-remedio/perfil-remedio.module').then( m => m.PerfilRemedioPageModule)
   },
   {
-    path: 'perfil-remedio',
+    path: 'perfil-remedio/:id',
     loadChildren: () => import('./pages/perfil-remedio/perfil-remedio.module').then( m => m.PerfilRemedioPageModule)
   },
   {
     path: 'duvidas',
     loadChildren: () => import('./pages/duvidas/duvidas.module').then( m => m.DuvidasPageModule)
   },
-
-
-
-
-
 
 
 ];
